@@ -1,13 +1,14 @@
 phone_map ={}
-
-
+employee = {}
 class ContactDetails:
     def __init__(self, phone_number, address):
         if phone_map.__contains__(phone_number):
             raise Exception("phone number already used")
-        phone_map[phone_number]=True
+        phone_map[phone_number]=self
         self.phone_number = phone_number
         self.address = address
+        # print(phone_map[phone_number].phone_number)
+
 
     def __str__(self):
         return (f"Employee contaact number {self.phone_number} and lives in {self.address} ")
@@ -19,6 +20,7 @@ class Person:
         self.name = name
         self.dob = dob
         self.contact = contact
+        
         
  
     def display(self):
@@ -58,6 +60,7 @@ class Employee(Person):
         self.idnumber=idnumber
         self.salary = salary
         self.post = post
+        employee[idnumber]=self
 
     def has_id():
         print(self.idnumber)
@@ -65,11 +68,21 @@ class Employee(Person):
     def __str__(self):
         return (f" emp name is {self.name} and has emp id {self.idnumber} and  has salary {self.salary} and emp post{self.post} an was born on {self.dob} has phone numbers {[i.phone_number for i in contacts]} and lives {[i.address for i in contacts]} ")
 
+def get_details(detail, idnumber):
+    emp = employee[idnumber]
+
+    if detail == "name":
+        return emp.name
+    if detail == "number":
+        return [ contact.phone_number for contact in emp.contact]
+    if detail == "salary":
+        return emp.name
+    
+
 
 contact1 = ContactDetails(12345 ,"PG ADDress")
 contact2 = ContactDetails(12334567 ,"PG ADDress")
 contact3 = ContactDetails(54322 ,"home ADDress")
-contact4 = ContactDetails(54322 ,"home ADDress")
 
 contact = [contact1, contact2 , "hello I'm the imposter"]
 contacts = [contact1, contact2, ]
@@ -80,7 +93,10 @@ emp =Employee("ramesh",124, 45322,"intern", "12/12/2003",contacts)
 
 
 
-print(emp)
+print(get_details("name",124))
+print(get_details("number",124))
+print(get_details("salary",124))
+
 
 # Same as yesterday added UNIQUE Contacts Contraints
 
