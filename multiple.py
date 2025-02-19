@@ -78,10 +78,11 @@ contacts = [contact1, contact2, ]
 
 emp =Employee("ramesh",124, 45322,"intern", "12/12/2003",contacts)
 
-# emp =Employee("ramesh",124, 45322,"intern", "12/12/2003",contacts)
 
 
 print(emp)
+
+# Same as yesterday added UNIQUE Contacts Contraints
 
 
 

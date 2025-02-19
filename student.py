@@ -69,4 +69,8 @@ semMap ={
 
 yashwanth = Student("yashwanth", "4VV21Ci061", semMap)
 
+#get grades of particular semester
+yashwanth.get_sem_marks(sem1)
+
+#get grades of current semester
 yashwanth.get_sem_marks(sem1)
